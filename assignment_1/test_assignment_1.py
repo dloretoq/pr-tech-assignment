@@ -67,3 +67,11 @@ def test_analyze_threshold_data_invalid():
     best_matrix = analyze_threshold_data(matrices, 0.9)
 
     assert best_matrix is None
+
+
+def test_analyze_threshold_data_empty():
+    matrices = []
+
+    best_matrix = analyze_threshold_data(matrices, 0.9)
+
+    assert best_matrix is None

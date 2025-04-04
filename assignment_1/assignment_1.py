@@ -83,7 +83,6 @@ def read_data_csv(filename) -> list:
                     row['tn']), int(row['fp']), int(row['fn'])))
     except Exception:
         logging.exception(f"Error reading CSV file: {filename}")
-        sys.exit(1)
 
     return data
 
@@ -102,7 +101,12 @@ def select_max_recall_matrix(confusion_matrices: list) -> ConfusionMatrix:
 
 def analyze_threshold_data(confusion_matrices: list, min_recall: float) -> ConfusionMatrix:
     """Analyzes the threshold data to find the best recall threshold over the specified minimum."""
+    if not confusion_matrices:
+        return None
+
     best_matrix = select_max_recall_matrix(confusion_matrices)
+
+    print(best_matrix)
 
     if best_matrix.recall() < min_recall:
         return None
