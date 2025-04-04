@@ -10,6 +10,20 @@ logging.basicConfig(level=logging.INFO)
 
 @dataclass
 class ConfusionMatrix:
+    """
+    Attributes
+    ----------
+    threshold: float
+        threshold value
+    tp: int
+        true positives
+    tn: int
+        true negatives
+    fp: int
+        false positives
+    fn: int
+        false negatives
+    """
     threshold: float
     tp: int
     tn: int
